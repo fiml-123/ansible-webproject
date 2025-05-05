@@ -1,0 +1,17 @@
+---
+- name: Installer PHP, PHP-FPM et extensions
+  apt:
+    name:
+      - php
+      - php-fpm
+      - php-mysql
+    state: present
+    update_cache: yes
+  tags: php
+
+- name: Démarrer le service PHP-FPM
+  service:
+    name: php8.2-fpm
+    state: started
+    enabled: yes
+  tags: php

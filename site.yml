@@ -1,0 +1,7 @@
+- hosts: web
+  become: yes
+  roles:
+    - { role: nginx, tags: ['nginx'] }
+    - { role: php, tags: ['php'] }
+    - { role: app, tags: ['app'] }
+    - { role: mysql, tags: ['mysql'] }

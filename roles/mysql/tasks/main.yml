@@ -1,0 +1,42 @@
+---
+- name: Installer MySQL (MariaDB)
+  apt:
+    name: mariadb-server
+    state: present
+    update_cache: yes
+  tags: mysql
+
+- name: Start and enable MySQL
+  service:
+    name: mariadb
+    state: started
+    enabled: yes
+  tags: mysql
+
+- name: Créer un utilisateur MySQL
+  mysql_user:
+    name: webuser
+    password: "{{ mysql_password }}"
+    priv: "webapp.*:ALL"
+    host: localhost
+    login_unix_socket: /run/mysqld/mysqld.sock
+    state: present
+  tags: mysql
+
+
+- name: Créer la base de données
+  mysql_db:
+    name: webapp
+    state: present
+    login_unix_socket: /run/mysqld/mysqld.sock
+  tags: mysql
+
+- name: Créer un utilisateur MySQL
+  mysql_user:
+    name: webuser
+    password: "webpass"
+    priv: 'webapp.*:ALL'
+    host: localhost
+    login_unix_socket: /run/mysqld/mysqld.sock
+    state: present
+  tags: mysql
