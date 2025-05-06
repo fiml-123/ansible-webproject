@@ -1,5 +1,4 @@
 
-```markdown
 # 📦 Projet Ansible – Déploiement d'environnements `production` et `staging`
 
 ## 👥 Auteurs
@@ -21,7 +20,6 @@ Ce projet a pour but d'automatiser la mise en place de deux environnements (stag
 
 ## 📁 Arborescence du projet
 
-```
 
 ansible-webproject/
 
@@ -124,5 +122,3 @@ Renvoie :
 * Enseignant ajouté en tant que **Owner** du dépôt
 * Respect de la structure attendue
 * README complet
-
-```
